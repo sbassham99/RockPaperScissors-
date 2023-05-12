@@ -11,7 +11,7 @@
     
     <script>
   
-        function getComputerChoice(computerSelection) {
+        function getComputerChoice() {
            let computerSelection = Math.floor(Math.random() * 3 +1); 
            if (computerSelection == 1){
                 return "scissors";
@@ -19,21 +19,29 @@
            else if (computerSelection == 2){
                 return "paper";
            }
-           else {
+           else  {
             return "rock";
            }
         }
      
         // define playerselection to computerselection 
         // to determine winner
-        /*playerSelection = (scissors, paper, rock);
+        
         function Round (playerSelection, computerSelection){  
-            if (playerSelection === "scissors" && computerSelection === paper ){
-                return "You Win!";
+            //playSelection.toLowerCase;
+            computerSelection = getComputerChoice();
+            if ((playerSelection === "scissors" && computerSelection === "paper") || (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock")){
+                return "You Win!";}
+            else if (playerSelection === computerSelection){
+                return "You Drew!";
+            }
+            else {
+                return "You Lost!"
+            }
             }
 
 
-        } */ 
+          
 
 
 
