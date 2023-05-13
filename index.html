@@ -10,8 +10,8 @@
 <body>
     
     <script>
-        let playerScore = 0;
-        let computerScore = 0; 
+        let playerScore 
+        let computerScore 
 
         function getComputerChoice() { //computer randomly chooses between 1 - 3 and assigns that to a string
 
@@ -29,34 +29,50 @@
      
         function Round (){  //plays 1 round of rock paper scissors in prompt. 
 
-            let playerSelection = prompt("Let's Play Rock Paper Scissors!", "");
+            let playerSelection = prompt("Let's Play Rock Paper Scissors! Best Out of 5!", "");
             playerSelection = playerSelection.toLowerCase();
             computerSelection = getComputerChoice();
             if ((playerSelection === "scissors" && computerSelection === "paper") || (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock")){
-                return "You Win!";}
+                playerScore++;
+                alert(`You beat the computer! Current Score: ${playerScore} : ${computerScore}`);
+            }
+            else if ((computerSelection === "scissors" && playerSelection === "paper") || (computerSelection === "rock" && playerSelection === "scissors") || (computerSelection === "paper" && playerSelection === "rock")){
+                computerScore++;
+                alert(`The computer won this round! Current Score: ${playerScore} : ${computerScore}`);
+            }
             else if (playerSelection === computerSelection){
-                return "You Drew!";
+                computerScore + 0, playerScore + 0;
+                alert("Draw! Try again!");
             }
             else {
-                return "You Lost!"
+                alert("please enter a valid input!")
             }
+            
             }
 
 
           // a function that can play 5 rounds of rock paper scissors
           // keeps score and determines a final winner
             // establish a variable for playerscore and computer score
+            // loop the round 5 times,
+            // round won variable, that = ++playerscore variable
           function Game(){
-
-          }
-
-
-
-
-
-
-
-
+             playerScore = 0;
+             computerScore = 0;
+            for (let i = 0; i <5; i++){
+                Round() 
+                } 
+            if (playerScore > computerScore){
+                alert(`You Win! Final Score: ${playerScore} to ${computerScore}`)
+            }
+            else if (computerScore > playerScore) {
+                alert(`You lost! Try again! Final Score: ${playerScore} to ${computerScore}`)
+            }
+            else {
+                alert(`Tie Game! Try again! Final Score: ${playerScore} to ${computerScore}` )
+            }
+            }
+            
     </script>
 
 
