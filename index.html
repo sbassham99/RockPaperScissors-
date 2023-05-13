@@ -29,7 +29,7 @@
      
         function Round (){  //plays 1 round of rock paper scissors in prompt. 
 
-            let playerSelection = prompt("Let's Play Rock Paper Scissors! Best Out of 5!", "");
+            let playerSelection = prompt("Let's Play Rock Paper Scissors! First to 5 Wins!", "");
             playerSelection = playerSelection.toLowerCase();
             computerSelection = getComputerChoice();
             if ((playerSelection === "scissors" && computerSelection === "paper") || (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock")){
@@ -59,9 +59,11 @@
           function Game(){
              playerScore = 0;
              computerScore = 0;
-            for (let i = 0; i <5; i++){
+            //for (let i = 0; i < 5; i++){
+               do { 
                 Round() 
                 } 
+                while ((playerScore || computerScore) < 5);
             if (playerScore > computerScore){
                 alert(`You Win! Final Score: ${playerScore} to ${computerScore}`)
             }
